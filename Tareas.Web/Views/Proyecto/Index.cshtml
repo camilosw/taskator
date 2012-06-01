@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanels.cshtml";
+    bool debug = false;
+}
+
+@Html.Script("Custom/cliente-servidor.js?f")
+
+@* Habilita el intellisense para el css y javascript, pero no se genera en el html final *@
+@if (false)
+{ 
+    <script src='/Scripts/jquery-1.7.1.min.js'></script> 
+    <script src='/Scripts/jquery-ui-1.8.16.min.js'></script> 
+    <script src='/Scripts/Custom/scripts.js'></script> 
+    <script src='/Scripts/Custom/scripts.panels.js'></script> 
+    <script src='/Scripts/date.js'></script> 
+}
+
+<div class="header-panels">
+    <a href="#" data-bind="click: agregarProyecto">Agregar proyecto</a>
+</div>
+
+<div class="columns-container" 
+  data-bind="sortable: { data: proyectos, afterMove: reordenarProyectos, options: { handle: 'h2'} } ">
+
+  @* Proyecto *@
+  <div class="column">
+
+    <div class="column-header">
+      <div data-bind="visible: $data !== viewModel.proyectoSeleccionado()">
+      <a href="#" data-bind="click: agregarTarea">Agregar tarea</a>
+        <div data-bind="click: function() { viewModel.seleccionarProyecto($data); }">
+          <h2 data-bind="text: Nombre, visible: $data !== viewModel.proyectoSeleccionado()"></h2>
+          <div data-bind="text: NombreCliente"></div>
+          <div data-bind="if: CodigoPresupuesto">Presupuesto: <span data-bind="text: CodigoPresupuesto"></span></div>
+        </div>
+      </div>            
+      <div class="edit" data-bind="visible: $data === viewModel.proyectoSeleccionado()">
+        <input data-bind="value: Nombre" class="edit-nombre-proyecto" placeholder="Proyecto" />
+        <select data-bind="options: Cliente.valores, value: IdCliente, optionsText: 'Nombre', optionsValue: 'Id'" 
+          class="edit-cliente" ></select>
+        Presupuesto: <input data-bind="value: CodigoPresupuesto" class="edit-codigo-presupuesto" placeholder="Presupuesto" />
+        <button class="small" 
+          data-bind="click: function() { viewModel.terminarEdicionProyecto($data); }">Ok</button>
+        <button class="small" 
+          data-bind="click: function() { viewModel.cancelarEdicionProyecto($data); }">Cancelar</button>
+      </div>
+    </div>
+
+    <div class="tasks-container" data-bind="foreach: Tareas">
+
+      @* Tarea *@
+      <div class="task" data-bind="visible: Estado.tareaEsActiva(IdEstado())">
+        
+        <div class="task-header" data-bind="css: { authenticated: UsuarioRegistrado.id == IdAsignado() }">
+            <div class="fecha">
+                <span data-bind="text: diasDiferencia, style: {backgroundColor: colorFecha }"></span>
+                <input data-bind="datepicker: FechaEntrega, datepickerOptions: {  }"/>
+            </div>
+            <h3 data-bind="text: Id"></h3>
+        </div>
+
+        <div class="task-content">
+            <div class="description" data-bind="convertLinks: { text: Descripcion }, 
+                                                 visible: !editando(),
+                                                 event: { dblclick: editar }"></div>
+            <div class="description edit" data-bind="visible: editando()" >
+                <textarea data-bind="value: Descripcion"></textarea>
+                <button class="small"
+                    data-bind="click: guardar">Ok</button>
+                <button class="small" 
+                    data-bind="click: function() { cancelar($parent); }">Cancelar</button>
+            </div>
+            <div class="time">
+              <div class="estimated">Estimado: 
+                <span data-bind="visible: TiempoEstimado() && !editandoTiempoEstimado(),
+                                 text: TiempoEstimado, click: function() { editandoTiempoEstimado(true); }"></span>
+                <input type="text" title="5d 4h 15m"
+                  data-bind="visible: !TiempoEstimado() || editandoTiempoEstimado(),
+                             value: TiempoEstimado, hasfocus: editandoTiempoEstimado" />
+              </div>
+              <div class="executed">Ejecutado: <span data-bind="text: TiempoEjecutado"></span></div>
+            </div>
+            <div class="author" data-bind="css: { authenticated: UsuarioRegistrado.nombre == UsuarioCrea() }">
+                <span data-bind="text: UsuarioCrea"></span>, 
+                <span data-bind="text: diasCreacion"></span>
+            </div>
+        </div>
+        
+        <div class="task-footer" data-bind="style: {backgroundColor: colorEstado }">
+             <select data-bind="options: Usuario.valores, value: IdAsignado, optionsCaption: '-- Ninguno --',
+                               optionsText: 'Nombre', optionsValue: 'Id'"></select>
+             <select class="estado" data-bind="options: Estado.valores, value: IdEstado, 
+                               optionsText: 'Nombre', optionsValue: 'Id'"></select>
+        </div>
+
+    </div>
+    @*Fin tarea*@
+
+    </div>
+    <div><a href="#" data-bind="click: agregarTarea">Agregar tarea</a></div>
+  </div>
+  @*Fin proyecto*@
+
+</div>
+  
+
+<div class="clear"></div>
+
+@if (debug)
+{
+    <div data-bind="text: ko.toJSON(viewModel)"></div>
+}
+
+@Html.Script("Custom/Proyecto.js")

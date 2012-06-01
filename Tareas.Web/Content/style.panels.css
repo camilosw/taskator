@@ -1,0 +1,225 @@
+﻿/* General
+------------------------------------------*/
+button {
+    border-radius: 4px;
+    margin-right: 2px;
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    color: #333;
+    cursor: pointer;
+}
+button.small {
+    font-size: 10px;
+    padding: 2px !important;
+}
+a {
+    color: #666;
+}
+a:hover {
+    color: #999;
+}
+.clear { 
+    clear: both; 
+    display: block; 
+    overflow: hidden; 
+    visibility: hidden; 
+    width: 0; 
+    height: 0;
+}
+.ui-state-highlight { 
+    height: 1.5em; 
+    line-height: 1.2em; 
+}
+
+.header-panels { 
+    position:fixed; 
+    top: 20px; 
+    z-index: 100;
+    left: 0; 
+    height: 20px; 
+    width: 100%;
+    background-color: #fed300;
+    color: #3d3c3f;
+    padding: 0 5px;
+}
+.header-panels a { 
+    color: #3d3c3f;
+    text-decoration: none;
+}
+.header-panels a:hover { 
+    text-decoration: underline;
+}
+
+/* Columnas
+------------------------------------------*/
+.columns-container { 
+    width: 10000px; 
+    margin-top: 50px; 
+    margin-left: 5px; 
+    margin-right: 50px; 
+    padding-right: 50px; 
+}
+.column { 
+    display:inline; 
+    float: left; 
+    margin-left: 5px; 
+    margin-right: 0px; 
+    width: 265px; 
+}
+.column-header {
+    border-bottom: 1px solid #ccc;
+    padding: 3px;
+    min-height: 22px;
+    position: relative;
+    color: #333;
+}
+.column-header h2 {
+    font-size: 16px;
+    width: 170px;
+    cursor: move;
+}
+.column-header a {
+    text-decoration: none;
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+}
+.column-header div.edit .edit-nombre-proyecto {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    color: #333;
+}
+.column-header div.edit .edit-cliente,
+.column-header div.edit .edit-codigo-presupuesto {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    color: #333;
+}
+.column-header div.edit .edit-cliente {
+  display: block;
+}
+.column-header div.edit .edit-codigo-presupuesto 
+{
+  width: 80px;
+}
+
+/* Tareas
+------------------------------------------*/
+.tasks-container { 
+    min-height: 50px;
+    margin-top: 5px;
+    overflow: scroll;
+}
+.task { 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    margin-bottom: 5px; 
+    background-color: #eee; 
+    width: 250px;
+}
+.task select,
+.task input {
+    font-size: 10px;
+}
+.task-header { 
+    border-bottom: 1px solid #ccc; 
+    background-color: #aaa; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;  
+    padding: 5px; 
+    min-height: 16px;
+}
+.task-header h3 { 
+    font-size: 14px; 
+    line-height: 16px; 
+}
+.task-header .fecha {
+    float:right;
+}
+.task-header .fecha input {
+    width: 55px;
+}
+.task-header .fecha span {
+    border-radius: 8px;
+    padding: 1px 10px;
+    color: #333;
+}
+.task-header .vacia {
+    background-color: #aaa;
+}
+.task-header.authenticated {
+    background-color: #3D3C3F;
+    color: #FED300;
+}
+.task-content { 
+}
+.task-content .proyect { 
+    padding: 5px; 
+    padding-bottom: 3px;
+    font-weight: bold;
+}
+.task-content .description {
+    padding: 5px; 
+    min-height: 12px;
+    word-wrap: break-word;
+}
+.task-content textarea {
+    width: 230px;
+    max-width: 230px;
+    min-width: 230px;
+    min-height: 100px;
+    font-family: Arial;
+    font-size: 12px;
+}
+.task-content .time {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top: 1px solid #ccc;
+}
+.task-content .time .estimated {
+  float: left;
+  width: 50%;
+  font-size: 11px;
+}
+.task-content .time .estimated input {
+  width: 60px;
+}
+.task-content .time .executed {
+  float: left;
+  width: 50%;
+  font-size: 11px;
+}
+.task-content .author {
+  border-top: 1px solid #ccc;
+  clear: both;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #666;
+}
+.task-content .author.authenticated {
+    background-color: #3D3C3F;
+    color: #FED300;
+}
+.task-footer { 
+    border-top: 1px solid #ccc; 
+    background-color: #aaa; 
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;  
+    padding: 5px; 
+    min-height: 16px;
+}
+.task-footer select.estado {
+    float: right;
+}
+
+/* 
+------------------------------------------*/

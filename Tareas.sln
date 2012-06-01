@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tareas.Web", "Tareas.Web\Tareas.Web.csproj", "{5A70A2F9-D080-442D-AC9C-99216F8EAB48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tareas.Lib", "Tareas.Lib\Tareas.Lib.csproj", "{5443886B-5B4A-4ADA-9AED-180359337442}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A70A2F9-D080-442D-AC9C-99216F8EAB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A70A2F9-D080-442D-AC9C-99216F8EAB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A70A2F9-D080-442D-AC9C-99216F8EAB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A70A2F9-D080-442D-AC9C-99216F8EAB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5443886B-5B4A-4ADA-9AED-180359337442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5443886B-5B4A-4ADA-9AED-180359337442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5443886B-5B4A-4ADA-9AED-180359337442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5443886B-5B4A-4ADA-9AED-180359337442}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

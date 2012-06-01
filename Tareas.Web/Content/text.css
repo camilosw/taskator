@@ -1,0 +1,42 @@
+/*
+ * Text CSS ~ Vertical Rhythm
+ * http://fluid24.org/
+ */
+
+/* 
+ 12px font size, with 18px line height 
+ 1em / 16px x 12px = 0.750em
+ 18 / 12 = 1.5em
+*/
+body { font: 0.75em/1.5 Arial, sans-serif; }
+
+/*
+ 1em now = 12px
+ h1 = 18px, 18px/12px = 1.5em
+ line-heigh = 18px/18px = 1em 
+ ...
+ h1=24px, h2=22px, h3=16px, h4=14px
+ for more help: http://pxtoem.com/ 
+ */
+h1 { font-size: 2em;     line-height: 1.333em; color: #fff;     }
+h2 { font-size: 1.833em; line-height: 1.333em;  }
+h3 { font-size: 1.333em; line-height: 1.285em;  }
+h4 { font-size: 1.167em; line-height: 1.5em;   }
+
+/* Text elements */
+p, ul, blockquote, pre, code, tt, td, th, label {
+  margin: 0 0 1em 0;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+pre,code,tt { font-family: 'andale mono', 'lucida console', monospace; }
+
+/* misc */ 
+.center   { text-align: center; }
+
+hr {
+  border: 0 #ccc solid;
+  border-top-width: 0.06em;
+  clear: both;
+  height: 0;
+}

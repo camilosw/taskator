@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .header { position:fixed; top: 0; left: 0; background-color: #ddd; width: 100%; height: 50px; }
+    .container { width: 10000px; margin-top: 50px; margin-left: 5px; margin-right: 50px; padding-right: 50px; }
+    .column { display:inline; float: left; margin-left: 5px; margin-right: 5px; width: 250px; }
+    .task { border: 1px solid #ccc; border-radius: 10px; margin-bottom: 5px; background-color: #eee; }
+    .task-header { border-bottom: 1px solid #ccc; background-color: Red; border-top-left-radius: 10px; 
+                   border-top-right-radius: 10px;  padding: 5px; }
+    .task-header h3 { font-size: 14px; line-height: 16px; }
+    .task-content { padding: 5px; }
+    .task-footer { border-top: 1px solid #ccc; background-color: #aaa; border-bottom-left-radius: 10px; 
+                   border-bottom-right-radius: 10px;  padding: 5px; }
+    .sortable {min-height: 20px; padding-bottom: 50px;}
+    .clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
+    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+</style>
+
+    <script>
+        $(function () {
+            $(".container").sortable({
+                cursor: "move",
+                opacity: 0.8,
+                handler: "h2"
+            });
+            $(".container").disableSelection();
+            $(".sortable").sortable({
+                placeholder: "ui-state-highlight",
+                connectWith: ".sortable",
+                cursor: "move",
+                opacity: 0.8,
+                handler: ".task-header"
+            });
+            $(".sortable").disableSelection();
+        });
+    </script>
+
+<div class="header">
+    Encabezado
+</div>
+<div class="container">
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="task">
+                <div class="task-header">
+                    #35
+                    <span style="float:right"><a href="#">Terminado</a></span>
+                </div>
+                <div class="task-content">
+                    Descripción
+                </div>
+                <div class="task-footer">
+                    <a href="#">Responsable</a>
+                    <span style="float:right">5-mar-2010</span>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-header">
+                    <h3>#35</h3>
+                </div>
+                <div class="task-content">
+                    Descripción
+                </div>
+                <div class="task-footer">
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-header">
+                    <h3>#35</h3>
+                </div>
+                <div class="task-content">
+                    Descripción
+                </div>
+                <div class="task-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2>Proyecto 2</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Proyecto 1</h2>
+        <div class="sortable">
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</div>
+            <div class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>

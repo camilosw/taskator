@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Tareas.Web.Controllers.MenuPrincipalController.MenuItem>
+
+<ul id="menu">     
+    @foreach(var menuItem in Model) {
+       <li> @Html.ActionLink(menuItem.Text, menuItem.Action, menuItem.Controller, null, new { @class = menuItem.Selected ? "selected" : "" }) </li>
+    }
+</ul>

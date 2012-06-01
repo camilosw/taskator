@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool debug = false;
+}
+
+<script type="text/javascript">
+  var path = '@VirtualPathUtility.ToAbsolute("~/")';
+</script>
+
+@section Head {
+    @Html.Script("jquery.lionbars.0.3.min.js")
+    @Html.Script("json2.js")
+    @Html.Script("Custom/tarea.js")
+
+    @Html.Css("lionbars.css")
+    @Html.Css("style.panels.css?f")
+
+@if (debug)
+{
+    @Html.Script("knockout-2.0.0.debug.js")
+    @Html.Script("knockout-sortable.js")
+}
+else
+{
+    @Html.Script("knockout-2.0.0.js")
+    @Html.Script("knockout-sortable.min.js")
+}
+    @Html.Script("Custom/scripts.panels.js?f")
+
+    @RenderSection("Head", false)
+}
+
+@RenderBody()

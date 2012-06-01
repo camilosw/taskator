@@ -1,0 +1,47 @@
+﻿@model Tareas.Web.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Ingresar";
+}
+
+@section Head {
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+}
+
+@Html.ValidationSummary(true, "No se pudo ingresar. Por favor corrija los errores e inténtelo de nuevo.")
+
+@using (Html.BeginForm()) {
+  <div class="login">
+      <fieldset>
+          <div class="editor-label">
+              @Html.LabelFor(m => m.UserName)
+          </div>
+          <div class="editor-field">
+              @Html.TextBoxFor(m => m.UserName)
+              @Html.ValidationMessageFor(m => m.UserName)
+          </div>
+
+          @*<div class="editor-label">
+              @Html.LabelFor(m => m.Password)
+          </div>
+          <div class="editor-field">
+              @Html.PasswordFor(m => m.Password)
+              @Html.ValidationMessageFor(m => m.Password)
+          </div>*@
+
+          <p>
+              @Html.CheckBoxFor(m => m.RememberMe)
+              @Html.LabelFor(m => m.RememberMe)
+          </p>
+
+          <p>
+              <input type="submit" value="Ingresar" />
+          </p>
+      </fieldset>
+  </div>
+  <div style="display: none; text-align: center; font-size: 40px; margin-top: 40px;">
+    <span style="color: Blue;">Solo funciona en Chrome</span><br />
+    <span style="color: Red; font-weight: bold;">POR FAVOR NO INSISTA !!!</span>
+  </div>  
+}
