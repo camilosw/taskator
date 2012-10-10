@@ -1,4 +1,4 @@
-  class Cliente < ActiveRecord::Base
+class Cliente < ActiveRecord::Base
   attr_accessible :nombre
   has_many :proyectos
 

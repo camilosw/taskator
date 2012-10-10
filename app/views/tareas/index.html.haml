@@ -1,25 +1,24 @@
-%h1 Listing tareas
+﻿%h1 Tareas
 
-%table
-  %tr
-    %th Proyecto
-    %th Estado
-    %th User
-    %th Descripcion
-    %th
-    %th
-    %th
-
-  - @tareas.each do |tarea|
+%table.table.table-striped.table-hover
+  %thead
     %tr
-      %td= tarea.proyecto
-      %td= tarea.estado
-      %td= tarea.user
-      %td= tarea.descripcion
-      %td= link_to 'Show', tarea
-      %td= link_to 'Edit', edit_tarea_path(tarea)
-      %td= link_to 'Destroy', tarea, method: :delete, data: { confirm: 'Are you sure?' }
+      %th Proyecto
+      %th Estado
+      %th Usuario
+      %th Descripción
+      %th Acciones
+  %tbody
+    - @tareas.each do |tarea|
+      %tr
+        %td= link_to tarea.proyecto.nombre, tarea.proyecto
+        %td= tarea.estado.nombre
+        %td= link_to tarea.user.nombre_usuario, usuario_path(tarea.user)
+        %td= link_to tarea.descripcion, tarea
+        %td
+          = link_to 'Editar', edit_tarea_path(tarea), class: 'btn btn-mini'
+          = link_to 'Eliminar', tarea, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
 
 %br
 
-= link_to 'New Tarea', new_tarea_path
+= link_to 'Crear tarea', new_tarea_path, class: 'btn btn-primary'

@@ -1,22 +1,10 @@
-= form_for @tarea do |f|
-  - if @tarea.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@tarea.errors.count, "error")} prohibited this tarea from being saved:"
-      %ul
-        - @tarea.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :proyecto
-    = f.text_field :proyecto
-  .field
-    = f.label :estado
-    = f.text_field :estado
-  .field
-    = f.label :user
-    = f.text_field :user
-  .field
-    = f.label :descripcion
-    = f.text_area :descripcion
-  .actions
-    = f.submit 'Save'
+= simple_form_for @tarea, html: { class: 'form-horizontal' } do |f|
+  = f.error_notification
+  .form-inputs
+    = f.association :proyecto, collection: Proyecto.order(:nombre), label_method: :nombre, include_blank: false, prompt: '-- Seleccionar --'
+    = f.association :estado, collection: Estado.all, label_method: :nombre, include_blank: false, prompt: '-- Seleccionar --'
+    = f.association :user, collection: User.order(:nombre_usuario), label_method: :nombre_usuario, include_blank: false, prompt: '-- Seleccionar --'
+    = f.input :descripcion
+  .form-actions
+    = f.submit 'Guardar', class: 'btn btn-primary'
+    = link_to 'Cancelar', tareas_path, class: 'btn'

@@ -1,3 +1,5 @@
+%h1 Usuario
+
 %p
   %b Usuario:
   = @usuario.nombre_usuario
@@ -5,6 +7,7 @@
   %b Email:
   = @usuario.email
 
-= link_to 'Editar', edit_usuario_path(@usuario)
-\|
-= link_to 'Volver', usuarios_path
+.form-actions
+  = link_to 'Volver', usuarios_path, class: 'btn'
+  = link_to 'Editar', edit_usuario_path(@usuario), class: 'btn'
+  = link_to 'Eliminar', usuario_path(@usuario), :method => 'delete', :confirm => '¿Está seguro?', :class => 'btn btn-danger' 

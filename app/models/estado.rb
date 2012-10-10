@@ -1,5 +1,6 @@
 class Estado < ActiveRecord::Base
   attr_accessible :nombre
+  has_many :tareas
 
   validates :nombre, presence: true
 end

@@ -1,6 +1,7 @@
 class Proyecto < ActiveRecord::Base
   attr_accessible :nombre, :cliente_id
   belongs_to :cliente
+  has_many :tareas
 
   validates :nombre, presence: true
   validates :cliente_id, presence: true
