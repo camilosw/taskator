@@ -1,0 +1,10 @@
+%p
+  %b Usuario:
+  = @usuario.nombre_usuario
+%p
+  %b Email:
+  = @usuario.email
+
+= link_to 'Editar', edit_usuario_path(@usuario)
+\|
+= link_to 'Volver', usuarios_path

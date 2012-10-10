@@ -1,0 +1,17 @@
+%h1 Listing estados
+
+%table
+  %tr
+    %th Nombre
+    %th
+    %th
+
+  - @estados.each do |estado|
+    %tr
+      %td= link_to estado.nombre, estado
+      %td= link_to 'Edit', edit_estado_path(estado)
+      %td= link_to 'Destroy', estado, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Estado', new_estado_path

@@ -1,0 +1,16 @@
+%p
+  %b Proyecto:
+  = @tarea.proyecto
+%p
+  %b Estado:
+  = @tarea.estado
+%p
+  %b User:
+  = @tarea.user
+%p
+  %b Descripcion:
+  = @tarea.descripcion
+
+= link_to 'Edit', edit_tarea_path(@tarea)
+\|
+= link_to 'Back', tareas_path

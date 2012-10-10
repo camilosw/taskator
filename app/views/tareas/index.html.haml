@@ -1,0 +1,25 @@
+%h1 Listing tareas
+
+%table
+  %tr
+    %th Proyecto
+    %th Estado
+    %th User
+    %th Descripcion
+    %th
+    %th
+    %th
+
+  - @tareas.each do |tarea|
+    %tr
+      %td= tarea.proyecto
+      %td= tarea.estado
+      %td= tarea.user
+      %td= tarea.descripcion
+      %td= link_to 'Show', tarea
+      %td= link_to 'Edit', edit_tarea_path(tarea)
+      %td= link_to 'Destroy', tarea, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tarea', new_tarea_path

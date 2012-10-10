@@ -1,0 +1,18 @@
+%h1 Usuarios
+
+%table
+  %tr
+    %th Nombre    
+    %th
+    %th
+
+  - @usuarios.each do |usuario|
+    %tr
+      %td= link_to usuario.nombre_usuario, usuario_path(usuario)
+      %td= link_to 'Editar', edit_usuario_path(usuario)
+      %td= link_to 'Eliminar', '#'
+
+%br
+
+= link_to 'Crear usuario', new_usuario_path
+

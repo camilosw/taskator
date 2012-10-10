@@ -1,24 +1,36 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'jquery-rails'
+gem 'haml'
+gem 'haml-rails'
 gem 'pg'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'devise'
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.2.3'
 end
 
-gem 'jquery-rails'
+group :development do
+  gem 'annotate'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rb-readline'
+  gem 'faker'
+  gem 'populator', git: "https://github.com/ryanb/populator.git"
+end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,0 +1,17 @@
+!!! 5
+%html
+%head
+  %title Taskator
+  = stylesheet_link_tag    "application", media: "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+%body
+  = render 'layouts/header'
+  .container
+    .row
+      -flash.each do |name, msg|
+        .alert{class: "alert-#{name == :notice ? "success" : "error" }"}
+          %a.close(data-dismiss="alert") x
+          = msg
+
+      = yield

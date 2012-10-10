@@ -1,0 +1,22 @@
+= form_for @usuario, url: (@usuario.new_record? ? usuarios_path : usuario_path(@usuario)) do |f|
+  - if @usuario.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@usuario.errors.count, "error")} prohibited this usuario from being saved:"
+      %ul
+        - @usuario.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :nombre_usuario
+    = f.text_field :nombre_usuario
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.text_field :password
+  .field
+    = f.label :password_confirmation
+    = f.text_field :password_confirmation
+  .actions
+    = f.submit 'Save'
