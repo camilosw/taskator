@@ -12,6 +12,8 @@
       %td= link_to 'Edit', edit_estado_path(estado)
       %td= link_to 'Destroy', estado, method: :delete, data: { confirm: 'Are you sure?' }
 
+= will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+
 %br
 
 = link_to 'New Estado', new_estado_path

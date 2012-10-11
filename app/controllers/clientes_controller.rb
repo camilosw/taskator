@@ -2,7 +2,7 @@ class ClientesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @clientes = Cliente.all
+    @clientes = Cliente.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -13,6 +13,8 @@
           = link_to 'Editar', edit_usuario_path(usuario), class: 'btn btn-mini'
           = link_to 'Eliminar', usuario_path(usuario), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
 
+= will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+
 %br
 
 = link_to 'Crear usuario', new_usuario_path, class: 'btn btn-primary'

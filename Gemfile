@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', git: "https://github.com/thomas-mcdonald/bootstrap-sass.git"
 gem 'bcrypt-ruby'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'

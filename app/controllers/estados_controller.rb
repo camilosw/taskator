@@ -4,7 +4,7 @@ class EstadosController < ApplicationController
   # GET /estados
   # GET /estados.json
   def index
-    @estados = Estado.all
+    @estados = Estado.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

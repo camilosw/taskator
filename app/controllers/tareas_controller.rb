@@ -2,7 +2,7 @@ class TareasController < ApplicationController
   # GET /tareas
   # GET /tareas.json
   def index
-    @tareas = Tarea.all
+    @tareas = Tarea.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

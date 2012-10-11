@@ -19,6 +19,8 @@
           = link_to 'Editar', edit_tarea_path(tarea), class: 'btn btn-mini'
           = link_to 'Eliminar', tarea, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
 
+= will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+
 %br
 
 = link_to 'Crear tarea', new_tarea_path, class: 'btn btn-primary'
