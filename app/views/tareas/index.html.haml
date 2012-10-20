@@ -1,0 +1,28 @@
+﻿%h1 Tareas
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Id
+      %th Proyecto
+      %th Estado
+      %th Usuario
+      %th Descripción
+      %th Acciones
+  %tbody
+    - @tareas.each do |tarea|
+      %tr
+        %td= link_to tarea.id, tarea
+        %td= link_to tarea.proyecto.nombre, tarea.proyecto
+        %td= tarea.estado.nombre
+        %td= link_to tarea.user.nombre_usuario, usuario_path(tarea.user)
+        %td= link_to tarea.descripcion, tarea
+        %td
+          = link_to 'Editar', edit_tarea_path(tarea), class: 'btn btn-mini'
+          = link_to 'Eliminar', tarea, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
+
+= will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+
+%br
+
+= link_to 'Crear tarea', new_tarea_path, class: 'btn btn-primary'

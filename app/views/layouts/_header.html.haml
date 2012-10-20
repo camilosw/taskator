@@ -1,0 +1,28 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar(data-toggle="collapse" data-target=".nav-collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand(href="/")Taskator
+      .nav.pull-right
+        %ul.nav
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle(href="#" data-toggle="dropdown") 
+                = current_user.nombre_usuario
+                %span.caret
+              %ul.dropdown-menu
+                %li= link_to "Configuración", edit_user_registration_path
+                %li.divider
+                %li= link_to "Salir", destroy_user_session_path, method: :delete
+          - else
+            %li= link_to "Ingresar", new_user_session_path
+      .nav.pull-right.nav-collapse
+        %ul.nav
+          - if user_signed_in?
+            %li= link_to "Clientes", clientes_path
+            %li= link_to "Proyectos", proyectos_path
+            %li= link_to "Usuarios", usuarios_path
+            %li= link_to "Tareas", tareas_path

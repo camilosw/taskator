@@ -1,0 +1,22 @@
+﻿%h1 Tarea
+
+%p
+  %b Id:
+  = @tarea.proyecto.id
+%p
+  %b Proyecto:
+  = @tarea.proyecto.nombre
+%p
+  %b Estado:
+  = @tarea.estado.nombre
+%p
+  %b Usuario:
+  = @tarea.user.nombre_usuario
+%p
+  %b Descripción:
+  = @tarea.descripcion
+
+.form-actions
+  = link_to 'Volver', tareas_path, class: 'btn'
+  = link_to 'Editar', edit_tarea_path(@tarea), class: 'btn'
+  = link_to 'Eliminar', tarea_path(@tarea), :method => 'delete', :confirm => '¿Está seguro?', :class => 'btn btn-danger' 

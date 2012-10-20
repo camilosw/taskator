@@ -1,4 +1,15 @@
 Taskator::Application.routes.draw do
+  resources :tareas
+
+  devise_for :users
+
+  resources :usuarios
+  resources :estados
+  resources :proyectos
+  resources :clientes  
+
+  root :to => "proyectos#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

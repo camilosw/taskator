@@ -1,0 +1,22 @@
+%h1 Proyectos
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Cliente
+      %th Nombre
+      %th Acciones
+  %tbody
+    - @proyectos.each do |proyecto|
+      %tr
+        %td= link_to proyecto.cliente.nombre, proyecto.cliente
+        %td= link_to proyecto.nombre, proyecto
+        %td
+          = link_to 'Editar', edit_proyecto_path(proyecto), class: 'btn btn-mini'
+          = link_to 'Eliminar', proyecto, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
+
+= will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+
+%br
+
+= link_to 'Crear proyecto', new_proyecto_path, class: 'btn btn-primary'

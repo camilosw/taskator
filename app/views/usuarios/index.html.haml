@@ -1,0 +1,21 @@
+%h1 Usuarios
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Nombre    
+      %th Acciones
+  %tbody
+    - @usuarios.each do |usuario|
+      %tr
+        %td= link_to usuario.nombre_usuario, usuario_path(usuario)
+        %td
+          = link_to 'Editar', edit_usuario_path(usuario), class: 'btn btn-mini'
+          = link_to 'Eliminar', usuario_path(usuario), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
+
+= will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+
+%br
+
+= link_to 'Crear usuario', new_usuario_path, class: 'btn btn-primary'
+
