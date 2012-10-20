@@ -3,6 +3,7 @@
 %table.table.table-striped.table-hover
   %thead
     %tr
+      %th Id
       %th Proyecto
       %th Estado
       %th Usuario
@@ -11,6 +12,7 @@
   %tbody
     - @tareas.each do |tarea|
       %tr
+        %td= link_to tarea.id, tarea
         %td= link_to tarea.proyecto.nombre, tarea.proyecto
         %td= tarea.estado.nombre
         %td= link_to tarea.user.nombre_usuario, usuario_path(tarea.user)

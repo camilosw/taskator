@@ -3,6 +3,9 @@
 %p
   %b Nombre:
   = @cliente.nombre
+%p
+  %b Activo:
+  = @cliente.activo
 
 .form-actions
   = link_to 'Volver', clientes_path, class: 'btn'

@@ -13,15 +13,12 @@
                    password_confirmation: "desarrollo")
     end
 
-    Estado.create!(nombre: 'Pendiente')
-    Estado.create!(nombre: 'Falta información')
-    Estado.create!(nombre: 'En proceso')
-    Estado.create!(nombre: 'Terminado')
-    Estado.create!(nombre: 'Cerrado')
-    Estado.create!(nombre: 'Rechazado')
-    Estado.create!(nombre: 'Corrección')
+    ['Pendiente', 'Falta información', 'En proceso', 'Terminado', 'Cerrado', 'Rechazado', 'Corrección'].each do |name|
+      Estado.create(nombre: name)
+    end
+
     10.times do |i|
-      cliente = Cliente.create!(nombre: Faker::Company.name)
+      cliente = Cliente.create!(nombre: Faker::Company.name, activo: [true, false].sample)
       rand(1..4).times do |j|
         proyecto = cliente.proyectos.create!(nombre: Faker::Lorem.sentence(3))
         rand(7).times do |k|

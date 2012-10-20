@@ -1,5 +1,5 @@
 class Cliente < ActiveRecord::Base
-  attr_accessible :nombre
+  attr_accessible :nombre, :activo
   has_many :proyectos
 
   validates :nombre, presence: true
@@ -13,5 +13,6 @@ end
 #  nombre     :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  activo     :boolean
 #
 

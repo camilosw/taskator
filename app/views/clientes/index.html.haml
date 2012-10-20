@@ -4,11 +4,13 @@
   %thead
     %tr
       %th Nombre
+      %th Activo
       %th Acciones
   %tbody
     - @clientes.each do |cliente|
       %tr
         %td= link_to cliente.nombre, cliente
+        %td= cliente.activo
         %td
           = link_to 'Editar', edit_cliente_path(cliente), class: 'btn btn-mini'
           = link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
