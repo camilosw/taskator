@@ -1,16 +1,17 @@
 !!! 5
-%html
-%head
-  %title Taskator
-  = stylesheet_link_tag    "application", media: "all"
-  = javascript_include_tag "application"
-  = csrf_meta_tags
-%body
-  = render 'layouts/header'
-  .container
-    -flash.each do |name, msg|
-      .alert{class: "alert-#{name == :notice ? "success" : "error" }"}
-        %a.close(data-dismiss="alert") x
-        = msg
+%html(ng-app)
+  %head
+    %title Taskator
+    %script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js")
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    = render 'layouts/header'
+    .container
+      -flash.each do |name, msg|
+        .alert{class: "alert-#{name == :notice ? "success" : "error" }"}
+          %a.close(data-dismiss="alert") x
+          = msg
 
-    = yield
+      = yield

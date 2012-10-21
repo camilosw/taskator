@@ -1,3 +1,15 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+@ClientCtrl = ($scope, $http) ->
+  $scope.clients = [
+    {
+      "nombre": "Cliente 1"
+      "activo": true
+    },{
+      "nombre": "Cliente 2"
+      "activo": false
+    }
+  ] 
+  $http.get('clientes.json').success (data) =>
+    $scope.clients = data
+  $scope.query = {"activo": true }
+
+  ClientCtrl.$inject = ['$scope', '$http']

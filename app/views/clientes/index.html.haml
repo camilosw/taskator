@@ -1,4 +1,22 @@
-%h1 Clientes
+%div(ng-controller="ClientCtrl")
+
+  %h1 Clientes
+
+  .row
+    .span3
+      .well
+        = link_to 'Crear', new_cliente_path, class: 'btn btn-primary btn-block'
+        %br
+        .input-prepend
+          %span.add-on
+            %i.icon-search
+          %input.span2(ng-model="query.nombre" type="text" placeholder="Filtrar")
+        %label.checkbox
+          %input(ng-model="query.activo" type="checkbox") Activos
+    .span9
+      %div(ng-repeat="client in clients | filter:query")
+        {{ client.nombre }}
+        {{ client.activo }}
 
 %table.table.table-striped.table-hover
   %thead
@@ -16,7 +34,3 @@
           = link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-mini btn-danger'
 
 = will_paginate @clientes, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
-
-%br
-
-= link_to 'Crear cliente', new_cliente_path, class: 'btn btn-primary'
