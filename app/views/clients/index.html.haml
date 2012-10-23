@@ -1,0 +1,24 @@
+%h1 Clients
+
+.row
+  .span3
+    .well
+      = link_to 'New Client', new_client_path, class: 'btn btn-primary btn-block'
+  .span9
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Closed
+          %th Actions
+      %tbody
+        - @clients.each do |client|
+          %tr
+            %td= link_to client.name, client
+            %td= client.closed
+            %td
+              = link_to 'Edit', edit_client_path(client), class: 'btn btn-mini'
+              = link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'
+
+    = will_paginate @clients, previous_label: h("<"), next_label: h(">"), class: "pagination pagination-centered"
+

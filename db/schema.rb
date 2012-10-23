@@ -11,41 +11,54 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018025636) do
+ActiveRecord::Schema.define(:version => 20121023033652) do
 
-  create_table "clientes", :force => true do |t|
-    t.string   "nombre",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.boolean  "activo"
+  create_table "clients", :force => true do |t|
+    t.string   "name",                          :null => false
+    t.boolean  "closed",     :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
-  create_table "estados", :force => true do |t|
-    t.string   "nombre",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "projects", :force => true do |t|
+    t.integer  "client_id"
+    t.string   "name",                           :null => false
+    t.text     "description"
+    t.integer  "order"
+    t.boolean  "closed",      :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
-  create_table "proyectos", :force => true do |t|
-    t.integer  "cliente_id"
-    t.string   "nombre",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  add_index "projects", ["client_id"], :name => "index_projects_on_client_id"
+
+  create_table "proyects", :force => true do |t|
+    t.integer  "client_id"
+    t.string   "name",                           :null => false
+    t.text     "description"
+    t.integer  "order"
+    t.boolean  "closed",      :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
-  add_index "proyectos", ["cliente_id"], :name => "index_proyectos_on_cliente_id"
+  add_index "proyects", ["client_id"], :name => "index_proyects_on_client_id"
 
-  create_table "tareas", :force => true do |t|
-    t.integer  "proyecto_id"
-    t.integer  "estado_id"
-    t.integer  "user_id"
-    t.text     "descripcion"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "tasks", :force => true do |t|
+    t.integer  "project_id",                     :null => false
+    t.integer  "assigned_id"
+    t.integer  "creator_id",                     :null => false
+    t.text     "description",                    :null => false
+    t.date     "due_date"
+    t.integer  "order"
+    t.boolean  "closed",      :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
-  add_index "tareas", ["estado_id"], :name => "index_tareas_on_estado_id"
-  add_index "tareas", ["proyecto_id"], :name => "index_tareas_on_proyecto_id"
+  add_index "tasks", ["assigned_id"], :name => "index_tasks_on_assigned_id"
+  add_index "tasks", ["creator_id"], :name => "index_tasks_on_creator_id"
+  add_index "tasks", ["project_id"], :name => "index_tasks_on_project_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -60,11 +73,9 @@ ActiveRecord::Schema.define(:version => 20121018025636) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "nombre_usuario",         :default => "", :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["nombre_usuario"], :name => "index_users_on_nombre_usuario", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

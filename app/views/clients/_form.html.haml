@@ -1,0 +1,11 @@
+= simple_form_for @client, html: { class: 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :closed
+
+  .form-actions
+    = f.button :submit
+    = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', clients_path, class: 'btn'

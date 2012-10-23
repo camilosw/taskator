@@ -1,0 +1,25 @@
+%h1 Task
+
+%p
+  %b Project:
+  = @task.project.name
+%p
+  %b Assigned:
+  = @task.assigned.email
+%p
+  %b Creator:
+  = @task.creator.email
+%p
+  %b Description:
+  = @task.description
+%p
+  %b Due date:
+  = @task.due_date
+%p
+  %b Closed:
+  = @task.closed
+
+.form-actions
+  = link_to 'Bakc', tasks_path, class: 'btn'
+  = link_to 'Edit', edit_task_path(@task), class: 'btn'
+  = link_to 'Delete', task_path(@task), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' 

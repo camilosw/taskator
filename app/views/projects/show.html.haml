@@ -1,0 +1,19 @@
+%h1 Project
+
+%p
+  %b Client:
+  = @project.client.name
+%p
+  %b Name:
+  = @project.name
+%p
+  %b Description:
+  = @project.description
+%p
+  %b Closed:
+  = @project.closed
+
+.form-actions
+  = link_to 'Back', projects_path, class: 'btn'
+  = link_to 'Edit', edit_project_path(@project), class: 'btn'
+  = link_to 'Delete', project_path(@project), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' 

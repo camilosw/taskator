@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :assigned_task, class_name: "Task", foreign_key: "assigned_id"
+  has_many :created_task, class_name: "Task", foreign_key: "creator_id"
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -6,12 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :nombre_usuario
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
-
-  has_many :tareas
-
-  validates :nombre_usuario, presence: true
 end
 
 # == Schema Information
@@ -31,6 +30,5 @@ end
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  nombre_usuario         :string(255)      default(""), not null
 #
 
