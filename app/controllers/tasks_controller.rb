@@ -2,11 +2,17 @@ class TasksController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @tasks = Task.paginate(page: params[:page])
+    #@tasks = Task.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @tasks }
+      format.json { render json: {projects: Project.active, clients: Client.active, users: User.all, tasks: Task.active} }
+    end
+  end
+
+  def active
+    respond_to do |format|
+      format.json { render json: Task.all }
     end
   end
 

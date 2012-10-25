@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+@TaskListCtrl = ($scope, $http) ->
+  $http.get('tasks.json').success (data) =>
+    $scope.projects = data.projects
+    $scope.clients = data.clients
+    $scope.users = data.users
+    $scope.tasks = data.tasks    
+  $scope.order = 'due_date'
+
+TaskListCtrl.$inject = ['$scope', '$http']
+
+jQuery ->
+  $('.tasks-group').jScrollPane()

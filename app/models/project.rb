@@ -1,10 +1,14 @@
 class Project < ActiveRecord::Base
   belongs_to :client
   has_many :tasks
-  attr_accessible :closed, :description, :name, :order
+  attr_accessible :closed, :description, :name, :order, :client_id
 
   validates :name, presence: true
-  validates :client_id, presence: true  
+  validates :client_id, presence: true
+
+  def self.active
+    projects = Project.where(closed: false)
+  end
 end
 
 # == Schema Information

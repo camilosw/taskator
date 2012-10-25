@@ -6,9 +6,9 @@
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body{class: "path-#{request.path.split('/').delete_if{|x| x == ''}.join('-')}" }
     = render 'layouts/header'
-    .container
+    .main.container
       -flash.each do |name, msg|
         .alert{class: "alert-#{name == :notice ? "success" : "error" }"}
           %a.close(data-dismiss="alert") x

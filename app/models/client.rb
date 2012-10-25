@@ -3,6 +3,10 @@ class Client < ActiveRecord::Base
   attr_accessible :closed, :name
 
   validates :name, presence: true
+
+  def self.active
+    clients = Client.where(closed: false)
+  end
 end
 
 # == Schema Information

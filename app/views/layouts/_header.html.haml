@@ -22,7 +22,7 @@
       .nav.pull-right.nav-collapse
         %ul.nav
           - if user_signed_in?
-            %li= link_to "Clients", clients_path
-            %li= link_to "Projects", projects_path
-            %li= link_to "Users", users_path
-            %li= link_to "Tasks", tasks_path
+            %li(class="#{'active' if current_page?(clients_path)}")= link_to "Clients", clients_path
+            %li(class="#{'active' if current_page?(projects_path)}")= link_to "Projects", projects_path
+            %li(class="#{'active' if current_page?(users_path)}")= link_to "Users", users_path
+            %li(class="#{'active' if current_page?(tasks_path)}")= link_to "Tasks", tasks_path
