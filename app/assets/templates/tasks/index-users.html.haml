@@ -21,7 +21,7 @@
     .tasks-list.span3(ng-repeat="user in users")
       .tasks-list-header
         %a(href="users/{{ user.id }}") 
-          %h2 {{ user.email }}
+          %h2 {{ user.username }}
       .tasks-group
         .task(ng-repeat="task in tasks | filter:{assigned_id: user.id} | filter:query | orderBy:order")
           %div

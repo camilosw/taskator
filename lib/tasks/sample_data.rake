@@ -3,7 +3,8 @@ namespace :db do
   task populate: :environment do
 
     9.times do |i|
-      User.create!(email: Faker::Internet.email,
+      User.create!(username: Faker::Internet.user_name,
+                   email: Faker::Internet.email,
                    password: "password",
                    password_confirmation: "password")
     end
@@ -17,7 +18,7 @@ namespace :db do
           task = project.tasks.new(description: Faker::Lorem.sentence(rand(10..20)), 
                                   closed: [true, false].sample)
           task.creator = User.first(:order => "RANDOM()")
-          task.assigned = User.first(:order => "RANDOM()")
+          task.assigned = User.first(:order => "RANDOM()") if [true, false].sample
           task.created_at = (rand*10).days.ago - 5.days
           task.updated_at = task.created_at + (rand*5).days
           task.due_date = task.created_at + (rand*10).days if [true, false].sample
