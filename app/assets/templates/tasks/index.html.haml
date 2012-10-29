@@ -1,0 +1,34 @@
+%ul.nav.nav-tabs
+  %li.active
+    %a(href="tasks#/tasks") By project
+  %li
+    %a(href="tasks#/tasks/user") By user
+  %li
+    %a(href="tasks#/tasks/tag") By tag
+  %li
+    %a(href="#") Closed
+
+%div
+  %input(ng-model="query" placeholder="Filter..." type="text")
+  Sort by:
+  %select(ng-model="order")
+    %option(value="due_date") Due date
+    %option(value="updated_at") Updated date
+    %option(value="created_at") Created date
+
+.tasks-container
+  .tasks-inner-container
+    .tasks-list.span3(ng-repeat="project in projects")
+      .tasks-list-header
+        %a(href="projects/{{ project.id }}") 
+          %h2 {{ project.name }}
+      .tasks-group
+        .task(ng-repeat="task in tasks | filter:{project_id: project.id} | filter:query | orderBy:order")
+          %div
+            %a(href='#/tasks/{{ task.id }}') 
+              {{ task.id }}
+            {{ task.due_date }}
+          {{ task.description }}
+          %div
+            Assigned to: {{ {user_id: task.assigned_id, users: users} | user }}
+            Created by: {{ {user_id: task.creator_id, users: users} | user }} on {{ task.created_at | date }}

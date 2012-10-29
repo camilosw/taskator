@@ -1,0 +1,14 @@
+.tasks-list.span3(ng-repeat="project in projects")
+  .tasks-list-header
+    %a(href="projects/{{ project.id }}") 
+      %h2 {{ project.name }}
+  .tasks-group
+    .task(ng-repeat="task in tasks | filter:{project_id: project.id} | filter:query | orderBy:order")
+      %div
+        %a(href='#/tasks/{{ task.id }}') 
+          {{ task.id }}
+        {{ task.due_date }}
+      {{ task.description }}
+      %div
+        Assigned to: {{ task.assigned_id }}
+        Created by: {{ task.creator_id }} on {{ task.created_at }}

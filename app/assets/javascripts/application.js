@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require angular-resource.min
 //= require jquery.jscrollpane.min
 //= require_tree .
